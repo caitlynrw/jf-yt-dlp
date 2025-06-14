@@ -9,10 +9,10 @@ on:
 
 env:
   MOD_VERSION: ${{ inputs.mod_version }}
-  GITHUB_REPO: "linuxserver/docker-mods" #don't modify
-  ENDPOINT: "linuxserver/mods" #don't modify
+  GITHUB_REPO: "caitlynrw/jf-yt-dlp" #don't modify
+  ENDPOINT: "caitlynrw/jf-yt-dlp" #don't modify
   BASEIMAGE: "master"
-  MODNAME: "dummy"
+  MODNAME: "yt-dlp"
   MULTI_ARCH: "false" #set to false if not needed
 
 jobs:
