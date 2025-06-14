@@ -27,3 +27,16 @@ jobs:
           echo "MODNAME=${{ env.MODNAME }}" >> $GITHUB_STEP_SUMMARY
           echo "MULTI_ARCH=${{ env.MULTI_ARCH }}" >> $GITHUB_STEP_SUMMARY
           echo "MOD_VERSION=${MOD_VERSION}" >> $GITHUB_STEP_SUMMARY
+
+  build:
+    uses: linuxserver/github-workflows/.github/workflows/docker-mod-builder.yml@v1
+    needs: set-vars
+    secrets:
+      CR_USER: ${{ secrets.CR_USER }}
+      CR_PAT: ${{ secrets.CR_PAT }}
+    with:
+      GITHUB_REPO: ${{ needs.set-vars.outputs.GITHUB_REPO }}
+      ENDPOINT: ${{ needs.set-vars.outputs.ENDPOINT }}
+      BASEIMAGE: ${{ needs.set-vars.outputs.BASEIMAGE }}
+      MODNAME: ${{ needs.set-vars.outputs.MODNAME }}
+      MOD_VERSION: ${{ needs.set-vars.outputs.MOD_VERSION }}
